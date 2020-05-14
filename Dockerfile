@@ -5,6 +5,13 @@
 FROM ibmjava:8-sdk AS builder
 LABEL maintainer="IBM Java Engineering at IBM Cloud"
 
+USER root
+RUN chgrp -R 0 /usr/share && \
+    chmod -R g+rwX /usr/share && \
+    chown -R 1001:0 /usr/share && \
+    chgrp -R 0 /usr/share && \
+    chmod -R g+rwX /usr/share && \
+    chown -R 1001:0 /usr/share
 WORKDIR /app
 RUN apt-get update && apt-get install -y maven
 
