@@ -1,7 +1,6 @@
 # IBM Java SDK UBI is not available on public docker yet. Use regular
 # base as builder until this is ready. For reference:
 # https://github.com/ibmruntimes/ci.docker/tree/master/ibmjava/8/sdk/ubi-min
-
 FROM maven:3.6.3-jdk-8 AS builder
 LABEL maintainer="IBM Java Engineering at IBM Cloud"
 
