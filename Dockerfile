@@ -8,12 +8,11 @@ LABEL maintainer="IBM Java Engineering at IBM Cloud"
 USER root
 RUN chgrp -R 0 /usr/share && \
     chmod -R g+rwX /usr/share && \
-    chown -R 1001:0 /usr/share && \
     chgrp -R 0 /var/cache/apt && \
-    chmod -R g+rwX /var/cache/apt && \
-    chown -R 1001:0 /var/cache/apt
-WORKDIR /app
+    chmod -R g+rwX /var/cache/apt
 RUN apt-get update && apt-get install -y maven
+
+WORKDIR /app
 
 COPY pom.xml .
 RUN mvn -N io.takari:maven:wrapper -Dmaven=3.5.0
