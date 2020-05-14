@@ -9,9 +9,9 @@ USER root
 RUN chgrp -R 0 /usr/share && \
     chmod -R g+rwX /usr/share && \
     chown -R 1001:0 /usr/share && \
-    chgrp -R 0 /usr/share && \
-    chmod -R g+rwX /usr/share && \
-    chown -R 1001:0 /usr/share
+    chgrp -R 0 /var/cache/apt && \
+    chmod -R g+rwX /var/cache/apt && \
+    chown -R 1001:0 /var/cache/apt
 WORKDIR /app
 RUN apt-get update && apt-get install -y maven
 
