@@ -253,8 +253,12 @@ spec:
                       --verbose \
                       -VV
 
+                    echo "Start Push with follow tags"
+
                     git push --follow-tags -v
 
+                    echo "Done Push with follow tags"
+                    
                     echo "IMAGE_VERSION=$(git describe --abbrev=0 --tags)" > ./env-config
                     echo "IMAGE_NAME=$(basename -s .git `git config --get remote.origin.url` | tr '[:upper:]' '[:lower:]' | sed 's/_/-/g')" >> ./env-config
                     echo "REPO_URL=$(git config --get remote.origin.url)" >> ./env-config
