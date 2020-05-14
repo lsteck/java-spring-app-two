@@ -2,15 +2,8 @@
 # base as builder until this is ready. For reference:
 # https://github.com/ibmruntimes/ci.docker/tree/master/ibmjava/8/sdk/ubi-min
 
-FROM ibmjava:8-sdk AS builder
+FROM maven:3.6.3-jdk-8 AS builder
 LABEL maintainer="IBM Java Engineering at IBM Cloud"
-
-USER root
-RUN chgrp -R 0 /usr/share && \
-    chmod -R g+rwX /usr/share && \
-    chgrp -R 0 /var/cache/apt && \
-    chmod -R g+rwX /var/cache/apt
-RUN apt-get update && apt-get install -y maven
 
 WORKDIR /app
 
